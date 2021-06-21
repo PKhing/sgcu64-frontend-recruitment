@@ -1,3 +1,6 @@
+import time
+import os
+
 # Initialize number pattern
 NUMBER_PATTERN = [
   " __      __  __      __  __  __  __  __     ",
@@ -40,10 +43,49 @@ def printTime(timeString):
       text+=getCharacterPattern(char,line)+' '
     print(text)
 
+#============================Countdown=======================================
+
+# Clear console screen
+def clearScreen():
+  os.system('cls' if os.name=='nt' else 'clear')
+
+# Display countdown timer
+def countdown(timeString):
+  [hour,minute,second] = [int(i) for i in timeString.split(':')]
+  while True:
+    clearScreen()
+
+    # Print time
+    timeString = f"{hour:02}:{minute:02}:{second:02}"
+    printTime(timeString)
+
+    # Decrease time
+    second -=1
+    if second < 0:
+      second = 59
+      minute -= 1
+    if minute <0:
+      minute = 59
+      hour -= 1
+    if hour < 0:
+      break
+    time.sleep(1)
+    
+#==============================Main========================================
 
 timeString = input()
 
 if not validateTime(timeString):
-  timeString = '  :  :  '
+  printTime('  :  :  ')
+  exit()
 
 printTime(timeString)
+
+# Countdown
+print("Countdown? (Y/N) ",end="")
+isCountdown = input()
+if isCountdown != 'Y':
+  exit()
+else:
+  countdown(timeString)
+
