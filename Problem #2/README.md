@@ -104,3 +104,13 @@ Please input any number: 3
 ```
 python chulaChana.py
 ```
+
+## Addtional Idea:
+
+- ในการแก้ไขปัญหานี้ เขียนโค้ดโดยคำนึงถึง time complexity เป็นหลัก โดยมีเวลาการทำงานของแต่ละ command ดังนี้\
+  (ให้ n คือจำนวนผู้ใช้งานทั้งหมด และ m คือจำนวนสถานที่)
+  - Check in: O(log(n))
+  - Check out: O(log(n))
+  - Print people count: O(m)
+  - Add new place: O(1)
+  - Remove place: O(m)
