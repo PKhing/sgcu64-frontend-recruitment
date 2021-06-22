@@ -45,6 +45,8 @@ def getCommand():
   print('  1. Check in user')
   print('  2. Check out user')
   print('  3. Print people count')
+  print('  4. Add new place')
+  print('  5. Remove place')
   print('Please input any number: ',end='')
   command = input()
   print('------------------------------------------------------')
@@ -90,6 +92,22 @@ def printPeopleCount():
   for i,place in enumerate(places):
     print('  '+str(i+1)+'. '+place.name+': '+str(place.getPopulation()))
 
+def addPlace():
+  print('Add new place')
+  print('Please Input place name: ',end='')
+  placeName = input()
+  places.append(Place(placeName))
+  print('Added '+placeName)
+
+def removePlace():
+  print('Delete place')
+  place = getPlace()
+  print('Checking out '+str(place.getPopulation())+' people')
+  for person in place.people:
+    person.place = None
+  places.remove(place)
+  print('Removed '+place.name)
+
 
 #===========================MAIN================================
 
@@ -105,6 +123,10 @@ while True:
     checkOut()
   elif command == '3':
     printPeopleCount()
+  elif command == '4':
+    addPlace()
+  elif command == '5':
+    removePlace()
   else:
     print('Invalid Command')
   print('------------------------------------------------------')
