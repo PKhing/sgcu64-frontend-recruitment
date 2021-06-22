@@ -213,3 +213,14 @@ button:hover {
     margin-right: min(10%, 122px);
   }
 }
+
+@media screen and (max-width: 375px) {
+  .register-card {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 2.5em;
+  }
+}
