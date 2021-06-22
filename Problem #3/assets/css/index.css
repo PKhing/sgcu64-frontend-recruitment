@@ -27,6 +27,7 @@ body {
 
 .register-card {
   /* USER CODE Begin: Style the card */
+  box-sizing: border-box;
   width: 100%;
   margin: 10px 30px 0 30px;
   padding: 20px 40px 20px 40px;
@@ -34,6 +35,7 @@ body {
   background-color: white;
   box-shadow: 0px 1px 5px 0px #10101026;
   border-radius: 8px;
+  max-width: 500px;
   /* USER CODE End: Style the card */
 }
 
@@ -117,7 +119,7 @@ button:hover {
 }
 
 /* USER CODE Begin: Manage screen width */
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   /* USER CODE END: Manage screen width */
   body {
     background: url("../img/bg-desktop.svg");
@@ -129,7 +131,7 @@ button:hover {
   .topbar {
     background: #ffffff;
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.08);
-    padding-left: 160px;
+    padding-left: min(160px, 10%);
     font-size: 24px;
   }
 
@@ -140,40 +142,55 @@ button:hover {
     max-width: 377px;
   }
 
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-grow: 1;
+  }
+
   .kite {
     /* USER CODE Begin: Control kite */
-
+    display: block;
+    position: absolute;
+    width: min(70%, 400px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     /* USER CODE END: Control kite */
   }
 
   .cloud {
     /* USER CODE Begin: Style cloud */
-
+    position: absolute;
+    display: block;
+    width: min(60%, 300px);
+    z-index: -1;
     /* USER CODE END: Style kite */
   }
 
   .cloud.cloud1 {
     /* USER CODE Begin: Control cloud1 */
-
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, -200%);
     /* USER CODE END: Control cloud1 */
   }
 
   .cloud.cloud2 {
     /* USER CODE Begin: Control cloud2 */
-
+    top: 50%;
+    left: 50%;
+    transform: translate(0, -50%);
     /* USER CODE END: Control cloud2 */
   }
 
   .cloud.cloud3 {
     /* USER CODE Begin: Control cloud3*/
-
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, 50%);
     /* USER CODE END: Control cloud3 */
-  }
-
-  input {
-    /* USER CODE Begin: Style the input field */
-
-    /* USER CODE END: Style the input field */
   }
 
   #register-form {
@@ -193,6 +210,6 @@ button:hover {
 
   .content {
     justify-content: space-between;
-    margin-right: 122px;
+    margin-right: min(10%, 122px);
   }
 }
