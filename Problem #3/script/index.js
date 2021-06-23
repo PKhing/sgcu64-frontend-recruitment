@@ -1,28 +1,35 @@
 const form = document.getElementById("register-form");
 
 const validate = (key, value, data) => {
-  switch (key) {
-    case "email":
-      if (value.indexOf("@") !== -1) {
-        return [true, ""];
-      } else {
-        return [false, "รูปแบบอีเมลไม่ถูกต้อง"];
-      }
-    case "password":
-      if (value.length < 8) {
-        return [false, "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร"];
-      } else {
-        return [true, ""];
-      }
-    case "confirmpassword":
-      if (value === data.password) {
-        return [true, ""];
-      } else {
-        return [false, "รหัสผ่านไม่ตรงกัน"];
-      }
-    default:
-      return [true, ""];
+  if (key === "email") {
+    if (value == "") {
+      return [false, "โปรดระบุอีเมล"];
+    }
+    if (value.indexOf("@") === -1) {
+      return [false, "รูปแบบอีเมลไม่ถูกต้อง"];
+    }
+  } else if (key === "password") {
+    if (value.length < 8) {
+      return [false, "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร"];
+    }
+  } else if (key === "confirmpassword") {
+    if (value !== data.password) {
+      return [false, "รหัสผ่านไม่ตรงกัน"];
+    }
+  } else if (key === "name") {
+    if (value === "") {
+      return [false, "โปรดระบุชื่อ"];
+    }
+  } else if (key === "lastname") {
+    if (value === "") {
+      return [false, "โปรดระบุนามสกุล"];
+    }
+  } else if (key === "username") {
+    if (value === "") {
+      return [false, "โปรดระบุชื่อผู้ใช้"];
+    }
   }
+  return [true, ""];
 };
 
 form.addEventListener("submit", (event) => {
@@ -33,21 +40,19 @@ form.addEventListener("submit", (event) => {
   for (const [key, value] of formData.entries()) {
     data[key] = value;
     // Validate
-    if (["email", "password", "confirmpassword"].includes(key)) {
-      const [isValid, errorMessage] = validate(key, value, data);
+    const [isValid, errorMessage] = validate(key, value, data);
 
-      const input = document.getElementById(`${key}-input`);
-      const helperText = document.getElementById(`${key}-helper-text`);
+    const input = document.getElementById(`${key}-input`);
+    const helperText = document.getElementById(`${key}-helper-text`);
 
-      if (isValid) {
-        input.style.borderColor = "#d4d4d4";
-        helperText.style.display = "none";
-      } else {
-        isDataValid = false;
-        input.style.borderColor = "#ff5757";
-        helperText.style.display = "block";
-        helperText.innerText = errorMessage;
-      }
+    if (isValid) {
+      input.style.borderColor = "#d4d4d4";
+      helperText.style.display = "none";
+    } else {
+      isDataValid = false;
+      input.style.borderColor = "#ff5757";
+      helperText.style.display = "block";
+      helperText.innerText = errorMessage;
     }
   }
   console.log(data);

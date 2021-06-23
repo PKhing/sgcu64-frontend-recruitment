@@ -31,9 +31,12 @@
         <h1 class="title">ลงทะเบียน</h1>
         <p class="subtitle">กรุณากรอกข้อมูลให้ครบถ้วน</p>
         <form id="register-form">
-          <input name="name" placeholder="ชื่อ" />
-          <input name="lastname" placeholder="นามสกุล" />
-          <input name="username" placeholder="ชื่อผู้ใช้" />
+          <input id="name-input" name="name" placeholder="ชื่อ" />
+          <p id="name-helper-text" class="helper-text"></p>
+          <input id="lastname-input" name="lastname" placeholder="นามสกุล" />
+          <p id="lastname-helper-text" class="helper-text"></p>
+          <input id="username-input" name="username" placeholder="ชื่อผู้ใช้" />
+          <p id="username-helper-text" class="helper-text"></p>
           <input
             id="email-input"
             name="email"
