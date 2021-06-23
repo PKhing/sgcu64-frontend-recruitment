@@ -84,7 +84,12 @@ input:focus {
   outline: none;
   border-color: #888888;
 }
-
+.helper-text {
+  margin-top: -25px;
+  font-size: 0.75rem;
+  color: #ff5757;
+  display: none;
+}
 button {
   /* USER CODE Begin: Style the button */
   display: block;

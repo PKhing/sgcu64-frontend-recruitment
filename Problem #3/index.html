@@ -34,13 +34,27 @@
           <input name="name" placeholder="ชื่อ" />
           <input name="lastname" placeholder="นามสกุล" />
           <input name="username" placeholder="ชื่อผู้ใช้" />
-          <input name="email" type="email" placeholder="อีเมล" />
-          <input name="password" type="password" placeholder="รหัสผ่าน" />
           <input
+            id="email-input"
+            name="email"
+            type="email"
+            placeholder="อีเมล"
+          />
+          <p id="email-helper-text" class="helper-text"></p>
+          <input
+            id="password-input"
+            name="password"
+            type="password"
+            placeholder="รหัสผ่าน"
+          />
+          <p id="password-helper-text" class="helper-text"></p>
+          <input
+            id="confirmpassword-input"
             name="confirmpassword"
             type="password"
             placeholder="ยืนยันรหัสผ่าน"
           />
+          <p id="confirmpassword-helper-text" class="helper-text"></p>
           <button type="submit">Submit</button>
         </form>
       </div>
