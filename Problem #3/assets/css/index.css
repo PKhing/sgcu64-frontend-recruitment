@@ -123,6 +123,13 @@ button:hover {
   justify-content: center;
 }
 
+.register-complete {
+  font-size: 3rem;
+  margin: 35vh 20px 35vh 20px;
+  margin-bottom: 35vh;
+  text-align: center;
+}
+
 /* USER CODE Begin: Manage screen width */
 @media screen and (min-width: 768px) {
   /* USER CODE END: Manage screen width */
@@ -217,6 +224,10 @@ button:hover {
     justify-content: space-between;
     margin-right: min(10%, 122px);
   }
+
+  .register-complete {
+    font-size: 4rem;
+  }
 }
 
 @media screen and (max-width: 375px) {
@@ -227,5 +238,9 @@ button:hover {
 
   .title {
     font-size: 2.5em;
+  }
+
+  .register-complete {
+    font-size: 2rem;
   }
 }

@@ -55,8 +55,12 @@ form.addEventListener("submit", (event) => {
       helperText.innerText = errorMessage;
     }
   }
-  console.log(data);
-  /* USER CODE Begin: What happened next after recieve form data (Optional) */
 
-  /* USER CODE END: What happened next after recieve form data (Optional) */
+  if (isDataValid) {
+    console.log(data);
+    const content = document.getElementById("content");
+    content.style.justifyContent = "center";
+    content.style.margin = "0";
+    content.innerHTML = `<h2 class="register-complete">ขอบคุณที่ลงทะเบียน!</h2>`;
+  }
 });
